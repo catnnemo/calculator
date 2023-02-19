@@ -19,7 +19,7 @@ body{
     flex-direction: column;
 }
 .result_item{
-    font-weight: bold;
+    font-weight:700;
 }
 .items{
     display: flex;

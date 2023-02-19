@@ -6,7 +6,7 @@ function initialize(){
   }
   
   function calculate() {
-      width = parseFloat(document.getElementById("width").value);
+    width = parseFloat(document.getElementById("width").value);
     height = parseFloat(document.getElementById("height").value);
     document.getElementById("output").innerHTML = width*height;
   }

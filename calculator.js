@@ -319,17 +319,16 @@ function calculate(){
   //condition_pave_cost = adjustForPaveMinimumPrice(region, "condition_pave", condition_pave_area, condition_pave_cost);
 
   //display result
-  document.getElementById("total_area").innerHTML = "Total Area: " + 
-  parseFloat(condition_pave_area + resurface_overlay_area + new_construction_area + 
-    saw_cut_patch_area + skim_patch_area + seal_coat_area) + " sq. ft";
+  document.getElementById("total_area").innerHTML = parseFloat(condition_pave_area + resurface_overlay_area + new_construction_area + 
+    saw_cut_patch_area + skim_patch_area + seal_coat_area) + " sq. ft.";
 
   //document.getElementById("test").innerHTML = test(region);
 
   var num = condition_pave_cost + resurface_overlay_cost + new_construction_cost + saw_cut_patch_cost + skim_patch_cost + seal_coat_cost + stripe_cost;
   num = num.toFixed(2);
 
-  document.getElementById("total_cost").innerHTML = "Total Cost: $" + num;
-  document.getElementById("total_spaces").innerHTML = "Total Spaces: " + parseFloat(document.getElementById("striping").value); 
+  document.getElementById("total_cost").innerHTML = "$" + num;
+  document.getElementById("total_spaces").innerHTML = parseFloat(document.getElementById("striping").value); 
 }
 
 /*

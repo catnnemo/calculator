@@ -7,12 +7,9 @@
   </head>
 
   <body onload="initialize()">
-    <h1>Cost Calculator v1.0</h1>
     <img class="logo" src="logo.jpg">
     <form>
-
       <label for="region">Region:</label>
-      
       <select id="region">
         <option value="eastern_nc">Eastern NC</option>
         <option value="the_triangle">The Triangle</option>
@@ -21,32 +18,39 @@
       </select><br><br>
 
       <label for="condition_pave">Condition & Pave:</label>
-      <input type="text" id="condition_pave" value="0"><br>
-
+      <input type="text" id="condition_pave" class="input" value="0"><br>
       <label for="resurface_overlay">Resurface/Overlay:</label>
-      <input type="text" id="resurface_overlay" value="0"><br>
-
+      <input type="text" id="resurface_overlay" class="input" value="0"><br>
       <label for="new_construction">New Construction:</label>
-      <input type="text" id="new_construction" value="0"><br>
+      <input type="text" id="new_construction" class="input" value="0"><br>
 
       <label for="saw_cut_patch">Saw-cut & Patch:</label>
-      <input type="text" id="saw_cut_patch" value="0"><br>
+      <input type="text" id="saw_cut_patch" class="input" value="0"><br>
 
       <label for="skim_patch">Skim Patch:</label>
-      <input type="text" id="skim_patch" value="0"><br>
+      <input type="text" id="skim_patch" class="input" value="0"><br>
 
       <label for="seal_coat">Seal Coat:</label>
-      <input type="text" id="seal_coat" value="0"><br>
+      <input type="text" id="seal_coat" class="input" value="0"><br>
 
       <label for="striping">Striping:</label>
-      <input type="text" id="striping" value="0"><br><br>
+      <input type="text" id="striping" class="input" value="0"><br><br>
   
       <button type="button" onclick="calculate()">Calculate</button>
     </form>
     <br>
-    <div id="total_area"></div>
-    <div id="total_spaces"></div>
-    <div id="total_cost"></div>
+
+    <div class="results">
+      <div class="items">
+        <div>Total Area:</div><div class="result_item" id="total_area">0 sq. ft.</div>
+      </div>
+      <div class="items">
+        <div>Total Spaces</div><div class="result_item" id="total_spaces">0</div>
+      </div>
+      <div class="items">
+        <div>Total Cost</div><div class="result_item" id="total_cost">$0.00</div>
+      </div>
+    </div>
 
 
     <script src="./calculator.js"></script>

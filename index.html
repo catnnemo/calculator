@@ -3,10 +3,12 @@
   <head>
     <meta charset="UTF-8">
     <title>Quick Cost Calculator</title>
+    <link rel="stylesheet" href="style_calc.css"></link>
   </head>
 
   <body onload="initialize()">
     <h1>Cost Calculator v1.0</h1>
+    <img class="logo" src="logo.jpg">
     <form>
 
       <label for="region">Region:</label>
@@ -35,29 +37,16 @@
 
       <label for="seal_coat">Seal Coat:</label>
       <input type="text" id="seal_coat" value="0"><br>
-<<<<<<< HEAD
-<!--
-      <label for="striping">Striping:</label>
-      <input type="text" id="striping"><br><br>
-    -->
-      <button type="button" onclick="calculate()">Calculate</button>
-    </form>
-    <br>
-    <div id="result"></div>
-    <div id="test"></div>
-    <div id="test2"></div>
-=======
 
       <label for="striping">Striping:</label>
       <input type="text" id="striping" value="0"><br><br>
-
+  
       <button type="button" onclick="calculate()">Calculate</button>
     </form>
     <br>
     <div id="total_area"></div>
     <div id="total_spaces"></div>
     <div id="total_cost"></div>
->>>>>>> refs/remotes/origin/main
 
 
     <script src="./calculator.js"></script>

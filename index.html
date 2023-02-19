@@ -2,37 +2,51 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Calculator</title>
+    <title>Quick Cost Calculator</title>
   </head>
-  <body>
-    <h1>Calculator</h1>
+
+  <body onload="initialize()">
+    <h1>Cost Calculator v1.0</h1>
     <form>
+
       <label for="region">Region:</label>
-      <select id="region" onchange="updateCalculations()">
+      
+      <select id="region">
         <option value="eastern_nc">Eastern NC</option>
         <option value="the_triangle">The Triangle</option>
         <option value="wilmington">Wilmington</option>
         <option value="fayetteville">Fayetteville</option>
       </select><br><br>
+
       <label for="condition_pave">Condition & Pave:</label>
-      <input type="text" id="condition_pave"><br>
+      <input type="text" id="condition_pave" value="0"><br>
+
       <label for="resurface_overlay">Resurface/Overlay:</label>
-      <input type="text" id="resurface_overlay"><br>
+      <input type="text" id="resurface_overlay" value="0"><br>
+
       <label for="new_construction">New Construction:</label>
-      <input type="text" id="new_construction"><br>
-      <label for="saw_cut_patch_rip_out_and_replace">Saw-cut & Patch:</label>
-      <input type="text" id="saw_cut_patch_rip_out_and_replace"><br>
+      <input type="text" id="new_construction" value="0"><br>
+
+      <label for="saw_cut_patch">Saw-cut & Patch:</label>
+      <input type="text" id="saw_cut_patch" value="0"><br>
+
       <label for="skim_patch">Skim Patch:</label>
-      <input type="text" id="skim_patch"><br>
+      <input type="text" id="skim_patch" value="0"><br>
+
       <label for="seal_coat">Seal Coat:</label>
-      <input type="text" id="seal_coat"><br>
+      <input type="text" id="seal_coat" value="0"><br>
+
       <label for="striping">Striping:</label>
-      <input type="text" id="striping"><br><br>
+      <input type="text" id="striping" value="0"><br><br>
+
       <button type="button" onclick="calculate()">Calculate</button>
     </form>
     <br>
-    <div id="result"></div>
+    <div id="total_area"></div>
+    <div id="total_spaces"></div>
+    <div id="total_cost"></div>
 
-    <script src="calculator.js"></script>
+
+    <script src="./calculator.js"></script>
   </body>
 </html>

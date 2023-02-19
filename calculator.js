@@ -305,6 +305,10 @@ function calculate(){
   var saw_cut_patch_area = parseFloat(document.getElementById("saw_cut_patch").value);
   var skim_patch_area = parseFloat(document.getElementById("skim_patch").value);
   var seal_coat_area = parseFloat(document.getElementById("seal_coat").value);
+<<<<<<< HEAD
+=======
+  
+>>>>>>> refs/remotes/origin/main
 
   var condition_pave_cost = condition_pave_area * data[region].condition_pave[area_code(condition_pave_area)];
   var resurface_overlay_cost = resurface_overlay_area * data[region].resurface_overlay[area_code(resurface_overlay_area)];
@@ -313,6 +317,7 @@ function calculate(){
   var skim_patch_cost = skim_patch_area * data[region].skim_patch[area_code(skim_patch_area)];
   var seal_coat_cost = seal_coat_area * data[region].seal_coat[area_code(seal_coat_area)];
 
+<<<<<<< HEAD
   //condition_pave_cost = adjustForPaveMinimumPrice(region, "condition_pave", condition_pave_area, condition_pave_cost);
 
   //display result
@@ -324,6 +329,22 @@ function calculate(){
   num = num.toFixed(2);
 
   document.getElementById("test2").innerHTML = "Total Cost: $" + num;
+=======
+  var stripe_cost = 50 * parseFloat(document.getElementById("striping").value);
+
+  //condition_pave_cost = adjustForPaveMinimumPrice(region, "condition_pave", condition_pave_area, condition_pave_cost);
+
+  //display result
+  document.getElementById("total_area").innerHTML = "Total Area: " + parseFloat(condition_pave_area + resurface_overlay_area + new_construction_area + saw_cut_patch_area + skim_patch_area + seal_coat_area);
+
+  //document.getElementById("test").innerHTML = test(region);
+
+  var num = condition_pave_cost + resurface_overlay_cost + new_construction_cost + saw_cut_patch_cost + skim_patch_cost + seal_coat_cost + stripe_cost;
+  num = num.toFixed(2);
+
+  document.getElementById("total_cost").innerHTML = "Total Cost: $" + num;
+  document.getElementById("total_spaces").innerHTML = "Total Spaces: " + parseFloat(document.getElementById("striping").value); 
+>>>>>>> refs/remotes/origin/main
 }
 
 function intialize(){
@@ -339,6 +360,7 @@ function intialize(){
 
 
 
+<<<<<<< HEAD
 
 
 
@@ -372,6 +394,8 @@ function intialize(){
 
 
 
+=======
+>>>>>>> refs/remotes/origin/main
 /*
     function calculate(){
         var region = document.getElementById("region").value;
@@ -420,4 +444,8 @@ function intialize(){
         }
 
 document.getElementById("result").innerHTML = "The estimated cost is $" + result;
+<<<<<<< HEAD
 */
+=======
+*/
+>>>>>>> refs/remotes/origin/main

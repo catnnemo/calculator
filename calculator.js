@@ -280,19 +280,6 @@ function area_code(area) {
     }
 }
 
-//TO DO: add in minimum price adjustments
-function adjustForPaveMinimumPrice(region, type, area, price){
-  var price_min = data[region].pave_price_minimum;
-  if (area < data[region][type].min){
-    return price_min;
-  } else if (price < price_min){
-    return price_min;
-  } else {
-    return price;
-  }
-}
-
-let condition_pave = document.getElementById("condition_pave");
 
 //added auto updater
 
@@ -302,15 +289,37 @@ region.addEventListener('change', (Event)=> {
 })
 
 condition_pave.addEventListener("input",(Event)=>{
-  if (condition_pave.value == ""){
-    console.log("value length is empty");
-    condition_pave.value = 0;
-  } else if (condition_pave.value >= 0){
-    console.log("value is zero or more");
-  }
+  
   calculate();
 })
 
+//TO DO: add in minimum price adjustments - done!
+
+//problem to fix: don't evaluate minimum if area is zero
+
+function adjustForPaveMinimumPrice(region, type, area, price){
+  var price_min = data[region].pave_price_minimum;
+  if (area < data[region][type].min){
+    return price_min;
+  } else if (price < price_min){
+    return price_min;
+  } else if (area === 0){
+    return 0;
+  } else {
+    return price;
+  }
+}
+
+function adjustForSealMinimumPrice(region, type, area, price){
+  var price_min = data[region].seal_price_minimum;
+  if (area < data[region][type].min){
+    return price_min;
+  } else if (price < price_min){
+    return price_min;
+  } else {
+    return price;
+  }
+}
 
 // calculate function can't handle numbers with commas
 // add data validation and cleaning
@@ -335,8 +344,20 @@ function calculate(){
 
   var stripe_cost = 50 * parseFloat(document.getElementById("striping").value);
 
-  //condition_pave_cost = adjustForPaveMinimumPrice(region, "condition_pave", condition_pave_area, condition_pave_cost);
 
+  condition_pave_cost = adjustForPaveMinimumPrice(region,"condition_pave",condition_pave_area,condition_pave_cost);
+  resurface_overlay_cost = adjustForPaveMinimumPrice(region,"resurface_overlay",resurface_overlay_area,resurface_overlay_cost);
+  new_construction_cost = adjustForPaveMinimumPrice(region,"new_construction",new_construction_area,new_construction_cost);
+  saw_cut_patch_cost = adjustForPaveMinimumPrice(region,"saw_cut_patch",saw_cut_patch_area,saw_cut_patch_cost);
+  skim_patch_cost = adjustForPaveMinimumPrice(region,"skim_patch",skim_patch_area,skim_patch_cost);
+  seal_coat_cost = adjustForSealMinimumPrice(region,"seal_coat",seal_coat_area,saw_cut_patch_cost);
+
+  console.log("c&p "+condition_pave_cost);
+  console.log("re "+resurface_overlay_cost);
+  console.log("new "+new_construction_cost);
+  console.log("saw "+saw_cut_patch_cost);
+  console.log("skim "+skim_patch_cost);
+  console.log("seal "+seal_coat_cost)
 
   //display result
   document.getElementById("total_area").innerHTML = parseFloat(condition_pave_area + resurface_overlay_area + new_construction_area + 

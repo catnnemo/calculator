@@ -280,7 +280,6 @@ function area_code(area) {
     }
 }
 
-
 //added auto updater
 
 region.addEventListener('change', (Event)=> {
@@ -289,7 +288,44 @@ region.addEventListener('change', (Event)=> {
 })
 
 condition_pave.addEventListener("input",(Event)=>{
-  
+  if (condition_pave.value == ""){
+    condition_pave.value = 0;
+  }
+  calculate();
+})
+
+resurface_overlay.addEventListener("input",(Event)=>{
+  if (resurface_overlay.value == ""){
+    resurface_overlay.value = 0;
+  }
+  calculate();
+})
+
+new_construction.addEventListener("input",(Event)=>{
+  if (new_construction.value == ""){
+    new_construction.value = 0;
+  }
+  calculate();
+})
+
+saw_cut_patch.addEventListener("input",(Event)=>{
+  if (saw_cut_patch.value == ""){
+    saw_cut_patch.value = 0;
+  }
+  calculate();
+})
+
+skim_patch.addEventListener("input",(Event)=>{
+  if (skim_patch.value == ""){
+    skim_patch.value = 0;
+  }
+  calculate();
+})
+
+seal_coat.addEventListener("input",(Event)=>{
+  if (seal_coat.value == ""){
+    seal_coat.value = 0;
+  }
   calculate();
 })
 
@@ -299,7 +335,10 @@ condition_pave.addEventListener("input",(Event)=>{
 
 function adjustForPaveMinimumPrice(region, type, area, price){
   var price_min = data[region].pave_price_minimum;
-  if (area < data[region][type].min){
+  if (area == 0){
+    price = 0;
+    return price;
+  } else if (area < data[region][type].min){
     return price_min;
   } else if (price < price_min){
     return price_min;
@@ -312,7 +351,10 @@ function adjustForPaveMinimumPrice(region, type, area, price){
 
 function adjustForSealMinimumPrice(region, type, area, price){
   var price_min = data[region].seal_price_minimum;
-  if (area < data[region][type].min){
+  if (area == 0){
+    price = 0;
+    return price;
+  } else if (area < data[region][type].min){
     return price_min;
   } else if (price < price_min){
     return price_min;

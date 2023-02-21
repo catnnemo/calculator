@@ -192,7 +192,7 @@ const data = {
         0: 0
       }
     },
-    fayetville: {
+    fayetteville: {
       pave_price_minimum: 35000,
       seal_price_minimum: 3750,
       condition_pave: {
@@ -273,7 +273,7 @@ function area_code(area) {
       return "u15";
     } else if (area > 15000){
       return "s";
-    } else if (area.value.length == 0){
+    } else if (area == ""){
       return 0;
     } else {
       return 0;
@@ -291,6 +291,25 @@ function adjustForPaveMinimumPrice(region, type, area, price){
     return price;
   }
 }
+
+let condition_pave = document.getElementById("condition_pave");
+
+//added auto updater
+
+region.addEventListener('change', (Event)=> {
+  calculate();
+  console.log("region is now " + region.value);
+})
+
+condition_pave.addEventListener("input",(Event)=>{
+  if (condition_pave.value == ""){
+    console.log("value length is empty");
+    condition_pave.value = 0;
+  } else if (condition_pave.value >= 0){
+    console.log("value is zero or more");
+  }
+  calculate();
+})
 
 
 // calculate function can't handle numbers with commas
@@ -317,6 +336,7 @@ function calculate(){
   var stripe_cost = 50 * parseFloat(document.getElementById("striping").value);
 
   //condition_pave_cost = adjustForPaveMinimumPrice(region, "condition_pave", condition_pave_area, condition_pave_cost);
+
 
   //display result
   document.getElementById("total_area").innerHTML = parseFloat(condition_pave_area + resurface_overlay_area + new_construction_area + 
